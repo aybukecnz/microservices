@@ -54,7 +54,8 @@ Payment Service
 - GET /payments/{id} – Get payment details
 
 <img width="1800" height="197" alt="image" src="https://github.com/user-attachments/assets/92a19c4f-4f4a-42bd-9a89-24e7bb9b1618" />
-<img width="1892" height="478" alt="image" src="https://github.com/user-attachments/assets/4887f6de-b6bc-49ad-bd42-09ce8b8c08ac" />
+<img width="1257" height="295" alt="image" src="https://github.com/user-attachments/assets/eb6521d7-bf9e-455d-87ea-a6ddfb8d24fe" />
+
 
 
 ## 📂 Project Structure
