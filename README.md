@@ -1,72 +1,74 @@
-# Microservices Demo
+# Microservices Project
 
-Bu proje, Python ile geliştirilmiş basit bir microservices mimarisini göstermektedir.  
-Projede iki mikro servis vardır: `user_service` ve `product_service`.  
-Docker ve Docker Compose kullanılarak kolayca çalıştırılabilir.
+This project demonstrates a **microservices architecture** using independent services with **Docker**.  
+It includes **user_service** and **payment_service**, each running in its own container, with clearly defined API endpoints for interaction.
 
----
+## ✨ Features
+- Independent microservices:
+  - `user_service` – handles user registration, authentication, and management
+  - `payment_service` – handles payment processing and related operations
+- Dockerized services for easy deployment
+- RESTful API endpoints for inter-service communication
+- Environment configuration using **Docker Compose**
+- Simple testing using `curl` or Postman
 
-## 📦 İçerik
+## 🛠️ Technologies Used
+- Python (FastAPI / Flask or your chosen framework)
+- Docker & Docker Compose
+- REST API principles
+- Optional: Jenkins / CI-CD for automation
 
-- `user_service/` – Kullanıcı yönetim servisi (CRUD işlemleri)  
-- `product_service/` – Ürün yönetim servisi (CRUD işlemleri)  
-- `tests/` – Basit testler (pytest ile çalıştırılabilir)  
-- `docker-compose.yml` – Servisleri tek komutla ayağa kaldırmak için
+## 🚀 How to Run
 
----
-
-## ⚙️ Gereksinimler
-
-- [Python 3.9+](https://www.python.org/)  
-- [Docker](https://www.docker.com/get-started)  
-- [Docker Compose](https://docs.docker.com/compose/install/)  
-
----
-
-## 🚀 Kurulum ve Çalıştırma
-
-### 1. Proje klasörüne gidin
-Terminal veya PowerShell açın ve projenin bulunduğu klasöre gidin:
-
-```bash
-cd /path/to/microservices
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/aybukecnz/microservices.git
+   cd microservices
 ```
-### 2. Docker Compose ile servisleri ayağa kaldırın
-```bash
-docker compose up --build
-```
-Bu komut hem servisleri build eder hem de çalıştırır. Servisler arka planda çalışacaktır.
+2. Build and run services using Docker Compose:
+  ```bash
+docker-compose up --build
+  ```
+3. Access services:
+user_service: http://localhost:...
+payment_service: http://localhost:...
 
-### 3. Servisleri durdurmak
-```bash
-docker compose down
-```
+4. Test endpoints using curl or Postman:
+  ```bash
+curl -X POST http://localhost:.../users -H "Content-Type: application/json" -d '{"username":"...","password":"..."}'
 
----
+  ```
+## 💻 Example API Endpoints
+User Service
 
-## 🌐 API Endpoints
-User Service:
+- POST /users – Register a new user
+  
+- GET /users/{id} – Get user details
+  
+- POST /login – Authenticate user
 
-GET	/users	Tüm kullanıcıları listeler
-POST	/users	Yeni kullanıcı ekler
-Product Service:
+Payment Service
 
-GET	/products	Tüm ürünleri listeler
-POST	/products	Yeni ürün ekler
+- POST /payments – Create a new payment
 
-Test için Postman veya curl kullanılabilir. Örnek:
-```bash
-curl -X GET http://localhost:5000/users
-curl -X POST http://localhost:5000/users -H "Content-Type: application/json" -d '{"name": "Ali"}'
-```
+- GET /payments/{id} – Get payment details
 
----
+## 📂 Project Structure
+  ```bash
+microservices/
+ ├── user_service/       # User service code and Dockerfile
+ ├── payment_service/    # Payment service code and Dockerfile
+ ├── docker-compose.yml  # Docker Compose configuration
+ ├── README.md           # Documentation
+ └── Other files         # Utilities, environment configs
+  ```
 
-## 🧪 Testler
+## 📈 Future Improvements
 
-Basit testleri çalıştırmak için:
-```bash
-cd tests
-pytest
-```
-Pytest testleri çalıştırır ve servislerin doğru çalışıp çalışmadığını kontrol eder.
+- Add more microservices (e.g., notification_service, order_service)
+
+- Implement authentication/authorization across services
+
+- Add database integration for persistent storage
+
+- Add unit and integration tests for all services
